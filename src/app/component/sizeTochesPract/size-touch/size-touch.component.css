@@ -1,0 +1,21 @@
+.arrayContainer {
+  display: flex;
+  /* flex-wrap: wrap; */
+  width: calc(100% - 10%);
+  border: 1px solid rgb(255, 0, 0);
+  overflow: hidden;
+
+}
+.wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.arrayContainer button {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+}
+.rightSide{
+  width: 10%;
+}

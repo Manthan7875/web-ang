@@ -1,0 +1,108 @@
+<!-- <div class="form-floating mb-3">
+  <input
+  [type]="inputType"
+  class="form-control"
+  [id]="inputLabel"
+  autocomplete="off"
+  [(ngModel)]="inputValue"
+  (ngModelChange)="inputValueEmit.emit(inputValue)"
+  placeholder="name@example.com"
+  [readonly]="inputReadonly"
+  [name]="inputLabel"
+  [required]="inputReqValidation"
+ >
+ <label for="floatingInput" class="label-transition">{{inputLabel}}<i class="fst-normal ps-1 p-0 text-danger">*</i></label>
+</div> -->
+
+<!-- <div class="form-group">
+  <label>{{ inputLabel }}</label>
+  <input
+    type="{{ inputType }}"
+    [(ngModel)]="inputValue"
+    [required]="inputReqValidation"
+    [ngClass]="{'is-invalid': inputReqValidation && !inputValue}">
+  <div *ngIf="inputReqValidation && !inputValue" class="invalid-feedback">
+    {{ inputLabel }} is required.
+  </div>
+</div> -->
+
+<!-- <div class="form-group">
+  <label for="{{name}}">{{inputLabel}}</label>
+  <input
+    type="{{inputType}}"
+    class="form-control"
+    id="{{name}}"
+    name="{{name}}"
+    [(ngModel)]="inputValue"
+    [required]="inputReqValidation"
+    [minlength]="inputMinLength"
+    [ngClass]="{
+      'is-invalid': submitted && ngControl?.invalid && (ngControl?.dirty || ngControl?.touched),
+      'is-valid': !ngControl?.invalid && (ngControl?.dirty || ngControl?.touched)
+    }"
+  >
+  <div *ngIf="ngControl?.touched && ngControl?.invalid" class="invalid-feedback">
+    <div *ngIf="ngControl?.errors?.required">Please provide a {{inputLabel?.toLowerCase()}}.</div>
+    <div *ngIf="ngControl?.errors['email']">Please provide a valid email address.</div>
+     <div *ngIf="ngControl?.errors['minlength']">Please provide a {{inputMinLength}}-character {{inputLabel?.toLowerCase()}}.</div>
+  </div>
+
+</div> -->
+
+
+<!-- <div class="form-group">
+  <label for="{{inputName}}">{{inputLabel}}</label>
+  <input
+    type="{{inputType}}"
+    class="form-control"
+    id="{{inputName}}"
+    name="{{inputName}}"
+    [(ngModel)]="inputValue"
+   required
+    [minlength]="inputMinLength"
+    [ngClass]="{'is-invalid': isInvalid || minLengthInvalid, 'is-valid': !isInvalid && !minLengthInvalid}"
+  >
+  <div *ngIf="isInvalid" class="invalid-feedback">
+    {{inputLabel}} is required.
+  </div>
+  <div *ngIf="minLengthInvalid" class="invalid-feedback">
+    {{inputLabel}} must be at least {{inputMinLength}} characters.
+  </div>
+</div> -->
+<!--
+<div class="form-group">
+  <label for="{{name}}">{{inputLabel}}</label>
+  <input
+    type="{{inputType}}"
+    class="form-control"
+    id="{{name}}"
+    name="{{name}}"
+    [(ngModel)]="inputValue"
+    [required]="inputReqValidation"
+    [minlength]="inputMinLength"
+    [ngClass]="{
+      'is-invalid': submitted && control?.invalid && (control?.dirty || control?.touched),
+      'is-valid': !control?.invalid && (control?.dirty || control?.touched)
+    }"
+  >
+  <div *ngIf="control?.touched && control?.invalid" class="invalid-feedback">
+    <div *ngIf="control && control.errors['minlength']">
+      Please provide a {{inputMinLength}}-character {{inputLabel?.toLowerCase()}}.
+    </div>
+    <div *ngIf="control?.errors['email']">Please provide a valid email address.</div>
+    <div *ngIf="control?.errors['minlength']">Please provide a {{inputMinLength}}-character {{inputLabel?.toLowerCase()}}.</div>
+  </div>
+</div> -->
+<hr>
+<!-- <div class="form-group">
+  <label>{{ label }}</label>
+  <input type="{{ type }}" class="form-control" [(ngModel)]="value" [name]="name" [required]="isRequired" [minlength]="minLength" [maxlength]="maxLength" />
+  <div *ngIf="showValidation && formControl && formControl.dirty && formControl.invalid" class="text-danger">
+    <div *ngIf="formControl.errors.required">This field is required.</div>
+    <div *ngIf="formControl.errors.minlength">Please enter at least {{ minLength }} characters.</div>
+    <div *ngIf="formControl.errors.maxlength">Please enter no more than {{ maxLength }} characters.</div>
+  </div>
+</div> -->
+<input type="text" [name]="name ? name : ''" (blur)="onTouched()" [(ngModel)]="value" (input)="onInputChange($event)" >
+
+

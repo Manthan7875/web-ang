@@ -1,0 +1,24 @@
+.legendForm{
+    height: 100vh;
+    background-color: rgb(229 229 229 / 67%);
+}
+.legend_inside{
+    padding: 50px;
+    background-color: #ffff;
+    border: 1px solid #adabab;
+    border-radius: 10px;
+}
+.heading_legend{
+    color: #8e0091;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+  }
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+}

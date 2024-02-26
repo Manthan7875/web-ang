@@ -1,0 +1,63 @@
+<div class="container mt-2"
+     (dragover)="allowDrop($event)"
+     (drop)="onDrop($event)"
+     (mousemove)="onMouseMove($event)"
+     (mouseup)="onMouseUp()">
+  <!-- <svg  class="barcode position-absolute" id="barcode" ></svg> -->
+  <!-- <svg [style]="{ 'left.px': svgLeft + 'px', 'top.px': svgTop + 'px' }" class="barcode position-absolute" id="barcode"></svg> -->
+  <!-- <svg (click)="selectBarcodeLabel()" [style.left.px]="barcodeLabel.left" [style.top.px]="barcodeLabel.top" class="barcode position-absolute" id="barcode"></svg> -->
+  <svg (click)="selectBarcodeLabel()"
+  [style.left.px]="barcodeLabel.left"
+  [style.top.px]="barcodeLabel.top"
+  [style.width.px]="barcodeLabel.width"
+  [style.height.px]="barcodeLabel.height"
+  class="barcode position-absolute"
+  id="barcode">
+</svg>
+
+
+
+  <label class="draggable p-0 text-nowrap"
+         *ngFor="let label of labels; let i = index"
+         [style.left.px]="label?.left"
+         [style.top.px]="label?.top"
+         [style.fontSize.px]="label?.fontSize"
+         (click)="selectLabel(label)"
+         [id]="label.id"
+         (mousedown)="onMouseDown($event, label)">
+    {{ label.text }}
+  </label>
+</div>
+
+<div class="external-container">
+  <div class="mb-2">
+    <label for="fontSizeInput">Font Size:</label>
+    <input type="number" (input)="adjustFontSize($event)" name="fontSizeInput" id="fontSizeInput" [(ngModel)]="selectedLabel.fontSize"  />
+  </div>
+  <div class="mb-2" >
+    <label for="fontSizeInput">Left Margin:</label>
+    <input type="number"  name="fontSizeInput" id="leftMarginInput" [(ngModel)]="selectedLabel.left" (input)="updateLeft($event)" />
+  </div>
+  <div class="mb-2">
+    <label for="fontSizeInput">Top Margin:</label>
+    <input type="number"  name="fontSizeInput" id="topMarginInput" (input)="updateTop($event)" [(ngModel)]="selectedLabel.top" />
+  </div>
+  <hr>
+  <div class="mb-2">
+    <label for="fontSizeInput">BarcodeQr Width:</label>
+    <input type="number"  name="barcodeWidthInput" id="barcodeWidthInput" (input)="updateWidth($event)" [(ngModel)]="selectedLabel.width" />
+  </div>
+  <div class="mb-2">
+    <label for="fontSizeInput">BarcodeQr Height:</label>
+    <input type="number"  name="barcodeHeightInput" id="barcodeHeightInput" (input)="updateHeight($event)" [(ngModel)]="selectedLabel.height" />
+  </div>
+
+  <button class="external-button p-0 text-nowrap"
+          *ngFor="let button of buttons; let i = index"
+          [attr.data-text]="button.text"
+          [id]="button.id"
+          draggable="true"
+          (dragstart)="onDragStart($event, button.text ,button.id)">
+    {{ button.text }}
+  </button>
+</div>

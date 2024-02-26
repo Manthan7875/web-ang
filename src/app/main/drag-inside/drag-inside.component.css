@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.draggable {
+  position: absolute;
+  cursor: grab;
+  /* background-color: #f0f0f0; */
+  /* padding: 10px; */
+  /* border: 1px solid #999; */
+  /* border-radius: 5px; */
+  user-select: none;
+}
+
+.external-container {
+  margin-top: 20px;
+}
+
+.external-button {
+  cursor: grab;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #999;
+  border-radius: 5px;
+}

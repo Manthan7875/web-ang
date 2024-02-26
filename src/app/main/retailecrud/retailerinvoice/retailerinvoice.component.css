@@ -1,0 +1,17 @@
+.main_container {
+    width: 95%;
+    padding: 50px;
+    background-color: fuchsia;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 20px;
+}
+.center{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.timepicker{
+  width: 200px;
+}

@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-between">
+  <div class="w-100 d-flex">
+    <div class="arrayContainer" [ngClass]="{ 'wrap' :show == arrayContain.length}" #container>
+      <button class="d-flex nowrap" *ngFor="let item of arrayContain | slice:0:show">{{item}}</button>
+    </div>
+    <span (click)="showOther()" *ngIf="show !== arrayContain?.length ">+{{arrayContain.length-show+1 ?
+      arrayContain.length-show :0 }}others</span>
+  </div>
+  <div (click)="toggle =!toggle ;seeAllorLess()" class="rightSide">{{toggle == false?'SeeAll':'SeeLess'}}</div>
+</div>

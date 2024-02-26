@@ -1,0 +1,131 @@
+<div class="container-fluid h-100 overflow-auto">
+
+
+
+<h2 class="text-primary text-center">extra-pract works!</h2>
+
+<div class="m-auto text-center">
+  <div>
+    <img [src]="imageUrl" alt="Mantha" />
+  </div>
+</div>
+<!-- <hr />
+<div class="container">
+  <div class="row">
+    <dir class="col-3 m-0 input_label">
+      <div class="input_label_group">
+        <input id="username" type="text" placeholder="  "  />
+        <label for="username">username</label>
+      </div>
+    </dir>
+
+    <dir class="col-3 m-0 ">
+      <div class="input_label_group">
+        <input id="email" type="email" placeholder="  " />
+        <label for="email">email</label>
+      </div>
+    </dir>
+  </div>
+</div> -->
+
+
+<hr />
+<div class="container">
+  <div class="row">
+    <dir class="col-3 m-0 input_label">
+      <div class="input_label_group">
+        <input class="form__input" id="username" type="text" placeholder=" "  />
+        <label class="form__label" for="username">username</label>
+        <div class="refreshIcon">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px" height="20px"><path fill="#32BEA6" d="M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z"/><path fill="#FFF" d="M436.2 180.1c-10.3 0-20.7.1-31 .1-23.3-52.2-69-89.9-126.6-98.9C214.2 71.2 152.7 101 116 153.6c-16.3 23.3 22 45.2 38.2 22 50.3-72 157.8-65.5 201.9 4.7-9.6 0-19.1 0-28.7.1-2.7 0-4.6 1.2-5.7 2.9-1.9 2.1-2.7 5.1-.6 8.2 18.2 28.2 36.4 56.5 54.6 84.7 3.1 4.7 9.7 4.7 12.7 0 18.1-28.3 36.1-56.7 54.2-85C445.5 186.4 441.5 180.1 436.2 180.1zM358.3 335.1c-49.9 71.5-156.1 65.6-200.9-3 9.2 0 18.3 0 27.5-.1 2.7 0 4.6-1.2 5.7-2.9 1.9-2.1 2.7-5.1.6-8.2-18.2-28.2-36.4-56.5-54.6-84.7-3.1-4.8-9.7-4.7-12.7 0-18.1 28.3-36.1 56.7-54.2 85-3 4.7.9 11 6.3 11 10.7 0 21.3-.1 32-.1 23.5 51.3 68.8 88.3 125.9 97.3 64.3 10.1 125.8-19.8 162.5-72.3C412.7 333.8 374.4 312 358.3 335.1z"/></svg>
+        </div>
+      </div>
+    </dir>
+
+    <dir class="col-3 m-0 input_label ">
+      <div class="input_label_group">
+        <input class="form__input" id="email" type="email" placeholder=" " />
+        <label class="form__label" for="email">email</label>
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px" height="20px"><path fill="#32BEA6" d="M7.9,256C7.9,119,119,7.9,256,7.9C393,7.9,504.1,119,504.1,256c0,137-111.1,248.1-248.1,248.1C119,504.1,7.9,393,7.9,256z"/><path fill="#FFF" d="M436.2 180.1c-10.3 0-20.7.1-31 .1-23.3-52.2-69-89.9-126.6-98.9C214.2 71.2 152.7 101 116 153.6c-16.3 23.3 22 45.2 38.2 22 50.3-72 157.8-65.5 201.9 4.7-9.6 0-19.1 0-28.7.1-2.7 0-4.6 1.2-5.7 2.9-1.9 2.1-2.7 5.1-.6 8.2 18.2 28.2 36.4 56.5 54.6 84.7 3.1 4.7 9.7 4.7 12.7 0 18.1-28.3 36.1-56.7 54.2-85C445.5 186.4 441.5 180.1 436.2 180.1zM358.3 335.1c-49.9 71.5-156.1 65.6-200.9-3 9.2 0 18.3 0 27.5-.1 2.7 0 4.6-1.2 5.7-2.9 1.9-2.1 2.7-5.1.6-8.2-18.2-28.2-36.4-56.5-54.6-84.7-3.1-4.8-9.7-4.7-12.7 0-18.1 28.3-36.1 56.7-54.2 85-3 4.7.9 11 6.3 11 10.7 0 21.3-.1 32-.1 23.5 51.3 68.8 88.3 125.9 97.3 64.3 10.1 125.8-19.8 162.5-72.3C412.7 333.8 374.4 312 358.3 335.1z"/></svg>
+        </div>
+      </div>
+    </dir>
+  </div>
+</div>
+<hr>
+<hr>
+<h2 class="text-success">* Clone add remove data without form</h2>
+<div *ngFor="let field of inputFields">
+  <div class="col-3 mx-3">
+    <input PhoneFormat type="text" [name]="field.name" [id]="'input-' + field.id" [(ngModel)]="field.value">
+    <div [ngClass]="{'invisible': !field.value}" class="btn btn-close" (click)="field.value =''"></div>
+  </div>
+
+  <button class="btn btn-info mx-3" (click)="cloneField(field)">Clone</button>
+  <button class="btn btn-success my-3 mx-3" (click)="addField()">Add</button>
+  <button class="btn btn-danger my-3 mx-3" (click)="removeField(field)">Remove</button>
+</div>
+<button class=" btn btn-secondary mx-3" (click)="Submit()">submit</button>
+
+<hr>
+<!-- reactive form dynamic  -->
+<h2 class="text-secondary">* Dynamic form array</h2>
+<div [formGroup]="myForm">
+<div formArrayName="myFields">
+  <div *ngFor="let field of formGet().controls; let i = index">
+    <div class="col-3 mx-3" [formGroupName]="i">
+      <input creditCardFormat  formControlName="name" placeholder="Name">
+      <input creditCardFormat class="my-3" formControlName="value" placeholder="Value">
+    </div>
+      <div>
+        <button class="btn btn-info my-3 mx-3" (click)="cloneFields(i)">Clone Field</button>
+        <button class="btn btn-danger my-3 mx-3" (click)="removeFields(i)">Remove Field</button>
+        <button class="btn btn-success my-3 mx-3" (click)="addFields()">Add Field</button>
+    </div>
+  </div>
+</div>
+<button class="btn btn-secondary mx-3" (click)="submitForm()">Submit</button>
+</div>
+
+<hr class="text-secondary">
+<h2 class="text-success text-center">Load data</h2>
+<div class="containerFixed mb-5" (scroll)="onScroll()">
+  <div class="item" *ngFor="let item of displayedItems">{{ item }}</div>
+  <div class="loading" *ngIf="isLoading">Loading...</div>
+</div>
+
+<hr>
+<!-- buttons more otheres  -->
+<h1>buttons</h1>
+
+<div>
+  <button *ngFor="let button of visibleButtons">{{ button.name }}</button>
+  <div *ngIf="visibleButtons.length < buttons.length">
+    <span *ngIf="showCount">{{ visibleButtons.length }}/{{ buttons.length }} buttons</span>
+    <button (click)="showMore()">Show More</button>
+  </div>
+  <div *ngIf="visibleButtons.length == buttons.length">
+    <button (click)="showLess()">Show Less</button>
+  </div>
+</div>
+</div>
+
+
+<hr>
+<hr>
+<hr>
+
+<!-- custom-date-picker.component.html -->
+<ngb-datepicker
+  [(ngModel)]="selectedDate"
+  (ngModelChange)="onSelect($event)"
+>
+  <!-- <ng-template ngbDatepickerDayView let-date="date" let-currentMonth="currentMonth" let-disabled="disabled">
+    <div class="custom-day">
+      <ngb-datepicker-day-view [date]="date" [currentMonth]="currentMonth" [disabled]="disabled"></ngb-datepicker-day-view>
+      <div *ngIf="isEventDate(date)" class="event-indicator">Event</div>
+    </div>
+  </ng-template> -->
+</ngb-datepicker>
+

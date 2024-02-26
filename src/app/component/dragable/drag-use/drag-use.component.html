@@ -1,0 +1,35 @@
+<div class="container-fluid p-0 h-100">
+
+
+
+
+  <div style="margin:50px">
+    <div #dap *ngFor="let data of HEROES" draggable="true" class="box">
+      {{ data.name }}
+    </div>
+    <div #dap draggable="true" class="box">B</div>
+    <div #dap draggable="true" class="box">C</div>
+  </div>
+  <!-- <div style="margin:50px">
+    <div appDragAndDrop *ngFor="let data of HEROES" draggable="true" class="box">
+      {{ data.name }}
+    </div>
+    <div appDragAndDrop draggable="true" class="box">B</div>
+    <div appDragAndDrop draggable="true" class="box">C</div>
+  </div> -->
+
+  <!-- (dragover)="handleDragOver($event)"
+  (dragstart)="handleDragStart($event)"
+  (dragenter)="handleDragEnter($event)"
+  (dragleave)="handleDragLeave($event)"
+  (drop)="handleDrop($event)"
+  (dragend)="handleDragEnd($event)" -->
+  <hr>
+  <div class="mainDiv">
+    <h2 class="text-secondary text-center">Load Data</h2>
+    <div class="container" (scroll)="onScroll()">
+      <div class="item" *ngFor="let item of displayedItems">{{ item }}</div>
+      <div *ngIf="isLoading">Loading...</div>
+    </div>
+  </div>
+</div>

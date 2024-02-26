@@ -1,0 +1,12 @@
+<p>extra-sub works!</p>
+
+<input type="date" [max]="maxDate" id="datePickerId" />
+
+<div (scroll)="onScroll($event)" id="mainDiv" style="height: 800px; width: 100%; background-color: #f0f0f0; overflow-y: auto;">
+  <!-- Scrollable content inside the main div -->
+  <div class="childDiv" style="height: 150px; width: 100%; background-color: #e0e0e0;">Child Div 1</div>
+  <div class="childDiv" style="height: 150px; width: 100%; background-color: #d0d0d0;">Child Div 2</div>
+  <div class="childDiv" style="height: 250px; width: 100%; background-color: #c0c0c0;">Child Div 3</div>
+  <div class="childDiv" style="height: 150px; width: 100%; background-color: #b0b0b0;">Child Div 4</div>
+  <div class="childDiv" style="height: 250px; width: 100%; background-color: #a0a0a0;">Child Div 5</div>
+</div>

@@ -1,0 +1,97 @@
+<h3><code>ng2-dragula</code></h3>
+
+<!-- these are some basics to get you started -- modify as you see fit. -->
+<!--
+<div class="containter_drop">
+  <label [draggable]="true" (dragEnd)="drag($event)" class="vamp"
+  [ngStyle]="{
+    'font-size': vamp?.fontSize + 'px'
+
+  }" *ngFor="let vamp of vamps">{{ vamp.name }}</label>
+
+
+</div> -->
+<div class="d-flex justify-content-center">
+  <!-- <div class="container containter_drop" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp(i)" *ngFor="let label of labels; let i = index">
+    <label class="draggable"
+           [style.left.px]="label.left" [style.top.px]="label.top"
+           (mousedown)="onMouseDown($event, i)">
+      {{ label.text }}
+    </label>
+  </div> -->
+
+  <!-- //start 1 -->
+
+  <!-- <div class="container containter_drop" (mousemove)="onMouseMove($event)">
+    <label class="draggable text-nowrap p-0 m-0 text-light"
+           *ngFor="let label of labels"
+           [style.left.px]="label.left" [style.top.px]="label.top"
+           (mousedown)="onMouseDown($event, label)" (mouseup)="onMouseUp(label)">
+      {{ label.text }}
+    </label>
+  </div> -->
+  <!-- //end 1 -->
+
+
+  <!-- //start 2 -->
+
+  <!-- Outside container -->
+  <div>
+    <button class="draggable" draggable="true" (dragstart)="onDragStart($event)">Button 1</button>
+<button class="draggable" draggable="true" (dragstart)="onDragStart($event)">Button 2</button>
+
+  </div>
+
+
+<!-- Inside container -->
+<div class="container containter_drop" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()">
+  <label class="draggable text-nowrap" *ngFor="let label of labels"
+         [style.left.px]="label.left" [style.top.px]="label.top"
+         (mousedown)="onMouseDown($event, label)">
+    {{ label.text }}
+  </label>
+</div>
+
+
+  <!-- end 2 -->
+
+
+
+</div>
+
+
+<div class="flex">
+  <div class="container" dragula="VAMPIRES" [(dragulaModel)]="vamps">
+    <label (dragEnd)="drag($event)" class="vamp"
+    [ngStyle]="{
+      'font-size': vamp?.fontSize + 'px'
+
+    }" *ngFor="let vamp of vamps">{{ vamp.name }}</label>
+  </div>
+
+  <div class="container" dragula="VAMPIRES" [(dragulaModel)]="vamps2">
+    <div class="vamp" *ngFor="let vamp of vamps2">{{ vamp.name }}</div>
+  </div>
+
+  <div class="container" dragula="VAMPIRES" [(dragulaModel)]="vamps3">
+    <div class="vamp" *ngFor="let vamp of vamps3">{{ vamp.id }}</div>
+  </div>
+</div>
+<p>You can choose a custom tooltip target. It works best when using manual triggers.</p>
+
+<div class="d-flex align-items-baseline">
+	<p>You can hover</p>
+
+	<button class="btn btn-outline-secondary ms-2" ngbTooltip="Told you so!" >
+		this button,
+	</button>
+
+	<p class="ms-2">but tooltip will appear <b #target>here</b>.</p>
+</div>
+<hr>
+<div class="contain mb-5" (scroll)="onScroll()">
+  <div *ngFor="let item of items" class="item">{{ item }}</div>
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+</div>
+
+

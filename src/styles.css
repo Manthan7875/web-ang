@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Add application styles & imports to this file! */
+/* @import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';   */
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import 'ag-grid-community/styles/ag-grid.css';
+
+
+/* @import '~@swimlane/ngx-datatable/assets/icons.css';   */
+body {
+    font-family: cursive;
+    background: rgb(255, 255, 255);
+    color: rgb(22, 21, 21);
+    overflow: hidden;
+  }
+
+
+  /* in-flight clone */
+  .gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    pointer-events: none;
+  }
+  /* high-performance display:none; helper */
+  .gu-hide {
+    left: -9999px !important;
+  }
+  /* added to mirrorContainer (default = body) while dragging */
+  .gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+  /* added to the source element while its mirror is dragged */
+  .gu-transit {
+    opacity: 0.2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+    filter: alpha(opacity=20);
+  }
+
+/* ngxDatatable */
+.datatable-scroll{
+  width: 100% !important;
+}
+
+.datatable-header{
+background-color: gray;
+}
+
+/* .datatable-body{
+  height: 1000px !important;
+} */
+/* ngxDatatable end */
+
+/* ngbModal Class for width */
+.popUp1Modal .modal-dialog{
+  max-width: 1000px;
+}
+
+/* forms validation code  */
+input.ng-touched.ng-invalid{
+  border-color: #dc3545;
+}
+
+input.ng-valid{
+  border-color: #28a745;
+}
+
+/* .ng-invalid:not(form) {
+  border-color: #dc3545;
+}
+.ng-valid:not(form) {
+  border-color: #28a745;
+} */
+
+.is-invalid{
+  border-color: #dc3545;
+}
+
+/* form validation code end  */
+
+
+
+/* //dashbaord  */
+
+/* Custom styles for legend box */
+/* Custom styles for legend box */
+/* Custom styles for legend box */
+/* Custom styles for chart and legend containers */
+.chart-legend-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.chart-container {
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.legend-container {
+  text-align: left;
+}
+
+.legend-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend-container li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend-container .legend-color {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+
+

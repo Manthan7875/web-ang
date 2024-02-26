@@ -1,0 +1,38 @@
+.container-fluid{
+  overflow-y: scroll;
+}
+
+.box {
+    border: 3px solid rgb(230, 197, 197);
+    background-color: rgb(110, 149, 175);
+    border-radius: 0.5em;
+    padding: 10px;
+    cursor: move;
+    color: white;
+  }
+
+  .box.over {
+    border: 3px dotted rgb(245, 41, 41);
+  }
+
+  /* Load data  */
+  .mainDiv{
+    height: 100vh;
+    width: 100vw;
+    background-color:#ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .container {
+    height: 400px;
+    overflow: auto;
+  }
+
+  .item {
+    height: 50px;
+    border: 1px solid #080808;
+    margin-bottom: 10px;
+  }

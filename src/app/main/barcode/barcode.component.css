@@ -1,0 +1,31 @@
+.codebar-boundary{
+  margin-top: 3em;
+  height: 100px;
+  width:250px;
+  background-color:lightgray;
+  position: relative;
+   /* display: flex;
+   flex-wrap: wrap; */
+}
+
+.d-input{
+  width: 85px;
+  margin-top: 5px;
+}
+.s-input{
+  width: 45px;
+  margin-top: 5px;
+}
+
+.label-con{
+  width: fit-content;
+}
+
+.first-class{
+  height: 10px;
+  width: 100px;
+  background-color: lightgray;
+}
+.barcode{
+
+}

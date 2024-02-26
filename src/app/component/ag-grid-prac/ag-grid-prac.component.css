@@ -1,0 +1,32 @@
+/* Custom AG Grid styles */
+.ag-theme-custom {
+    --ag-foreground-color: #333333;
+    --ag-background-color: #f5f5f5;
+  }
+
+  .ag-theme-custom .ag-header-cell {
+    background-color: #cccccc;
+    color: #333333;
+  }
+
+  .ag-theme-custom .ag-header-cell-text {
+    font-weight: bold;
+  }
+
+  .ag-theme-custom .ag-cell {
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .ag-theme-custom .ag-cell-focus {
+    background-color: #ffddcc;
+  }
+
+  :host{
+    height: 95vh;
+    display: block;
+    overflow: scroll;
+
+    .address-grid{
+      height: 250px;
+    }
+  }

@@ -1,0 +1,68 @@
+<div class="main_container">
+  <div class="center">
+    <div>
+      <div class="">
+        <input type="text" />
+        <span>
+          <i class="icofont-alarm"></i>
+          m
+        </span>
+      </div>
+      <div>
+        <img
+          width="50px"
+          src="../../../../assets/images/2_Getty04.jpg"
+          alt="img"
+        />
+      </div>
+    </div>
+    <img width="50px" height="50px" src="../../../../assets/images/user.png" alt="ikm" />
+    <div>
+      <div>
+        <input type="text" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ngx web cam section html code  -->
+<div>
+  <button (click)="checkPermissions()">Check the webcam permissions</button>
+  <p *ngIf="status">Status here: {{status}}</p>
+</div>
+<div *ngIf="stream">
+   <!-- web cam image will be shown here -->
+   <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" [imageQuality]="1"></webcam>
+   <button (click)="captureImage()" >{{btnLabel}}</button>
+</div>
+
+<!-- Preview section -->
+<div *ngIf="previewImage">
+  <img [src]="previewImage" height="250" width="250">
+  <button (click)="proceed()">Proceed</button>
+</div>
+<!-- end  -->
+
+
+<!-- ngx print section  -->
+
+<div id="section">
+  <h1 id="heading">This is the heading</h1>
+</div>
+
+<!-- [printStyle]="{h1:{'color':'red'}, h2:{'border':'solid 1px'}}"  this is the inline css and we use in button for printing above section -->
+
+<button styleSheetFile="assets/images/css/style.css" printTitle="A custom print title" printSectionId="section"
+  ngxPrint>
+  Print Html To Pdf
+</button>
+
+<hr>
+<!-- <select class="timepicker ;form-control" id="timeDropdown" (change)="onTimeSelected($event)">
+  <option *ngFor="let time of timeOptions" [value]="time.value">{{ time.label }}</option>
+</select> -->
+
+<select class="form-select timepicker" aria-label="Default select example">
+  <option *ngFor="let time of timeOptions" [value]="time.value">{{ time.label }}</option>
+</select>

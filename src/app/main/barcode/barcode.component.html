@@ -1,0 +1,75 @@
+<div>
+  <div class="d-flex justify-content-between p-t-10">
+    <!-- <div *ngFor="let option of options; let i = index">
+      <select [(ngModel)]="selectedValues[i]" (change)="disableOptions(selectedValues[i])">
+        <option *ngFor="let opt of options" [value]="opt" [disabled]="selectedValues.includes(opt) && opt !== selectedValues[i]">{{ opt }}</option>
+      </select>
+    </div> -->
+
+    <div *ngFor="let data of dropdownList; let i = index">
+      <!-- <app-dropdown></app-dropdown> -->
+      <select
+        (change)="disableOptions($event, data)"
+        [(ngModel)]="data.labelValue"
+      >
+        <option value="" selected></option>
+        <option
+          *ngFor="let d of data.list"
+          [disabled]="d.isSelected"
+          [value]="d.id"
+        >
+          {{ d.name }}
+        </option>
+      </select>
+      <div>
+        <input
+          class="d-input"
+          type="text"
+          [(ngModel)]="data.inputValue.value"
+          (dragstart)="dragged($event, data)"
+          (input)="changeValue($event, data)"
+        />
+      </div>
+      <div class="d-flex">
+        <input
+          class="s-input"
+          min="0"
+          [max]="divWidth - lableWidth "
+          type="number"
+          [(ngModel)]="data.inputValue.x"
+          (input)="changeX($event, data.inputValue)"
+        />
+        <input
+          class="s-input"
+          min="0"
+          [max]="divHeight - labelHeight"
+          type="number"
+          [(ngModel)]="data.inputValue.y"
+          (input)="changeY($event, data.inputValue)"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <input class="ml-2" type="number" [(ngModel)]="divWidth" />
+    <input class="ml-2"  type="number" [(ngModel)]="divHeight" />
+    <!-- <input class="ml-2" [min]="0"  [max]="divWidth - 110"  type="number" [(ngModel)]="bx" />
+    <input class="ml-2" [min]="0" [max]="divHeight - 30"  type="number" [(ngModel)]="by" /> -->
+  </div>
+  <div class="d-flex align-items-center">
+    <div class="first-class">1</div>
+    <div
+      #container
+      id="mainContainer"
+      class="codebar-boundary mt-2"
+      [style.width.px]="divWidth"
+      [style.height.px]="divHeight"
+      (drop)="onDrop($event)"
+      (dragover)="allowDrop($event)"
+    >
+      <svg cdkDrag (cdkDragDropped)="dragEnd($event)" cdkDragBoundary=".codebar-boundary"  [cdkDragFreeDragPosition]="{ x: bx, y: by }" class="barcode" id="barcode"></svg>
+    </div>
+  </div>
+</div>
+

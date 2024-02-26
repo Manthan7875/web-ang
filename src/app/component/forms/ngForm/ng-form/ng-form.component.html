@@ -1,0 +1,95 @@
+<!-- <h2>Template-Driven Form</h2>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <app-input inputLabel="Email" inputName="Email" inputType="email" inputName="email" [inputValue]="formData.email" [inputRequired]="true"></app-input>
+  </div>
+  <div class="form-group">
+    <app-input inputLabel="Password" inputName="Password" inputType="password" inputName="password" [inputValue]="formData.password" [inputRequired]="true" inputMinLength="8"></app-input>
+  </div>
+  <div class="form-group">
+    <app-input inputLabel="Confirm Password" inputName="ConfirmPassword" inputType="password" inputName="confirmPassword" [inputValue]="formData.confirmPassword" [inputRequired]="true" inputMinLength="8"></app-input>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+<!--
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <app-input
+      inputLabel="Email"
+      [name]="'email'"
+      inputType="email"
+      [(ngModel)]="formData.email"
+      inputReqValidation="true"
+    ></app-input>
+  </div>
+  <div class="form-group">
+    <app-input
+      inputLabel="Password"
+      [name]="'password'"
+      inputType="password"
+      [(ngModel)]="formData.password"
+      inputReqValidation="true"
+      inputMinLength="6"
+    ></app-input>
+  </div>
+  <div class="form-group">
+    <app-input
+      inputLabel="Confirm Password"
+      [name]="'confirmPassword'"
+      inputType="password"
+      [(ngModel)]="formData.confirmPassword"
+      inputReqValidation="true"
+      inputMinLength="6"
+    ></app-input>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+</form> -->
+
+<hr>
+<h1>Parent Component</h1>
+    <!-- <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <app-input label="Email" name="email" [(ngModel)]="email"  type="email" [formControl]="myForm.controls['email'] as FormControl "></app-input>
+      <app-input label="Password" name="password" [(ngModel)]="password"  type="password" minLength="6" [formControl]="myForm.controls['password'] as FormControl"></app-input>
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+    </form> -->
+
+    <form #myForm="ngForm">
+      <app-input [(ngModel)]="myProperty" [name]="'myInput'" required></app-input>
+      <my-input type="password" [(ngModel)]="password" [name]="'password'"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" required></my-input>
+      <my-input type="password" [(ngModel)]="confirmPassword" [name]="'confirmPassword'" [ngModelOptions]="{ updateOn: 'blur' }"
+        [pattern]="password" required></my-input>
+    </form>
+    <button (click)="submitForm(form)">Submit</button>
+<hr>
+
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" [(ngModel)]="formData.name" required>
+    <div *ngIf="form.submitted && form.controls['name']?.errors?.['required']" class="error-message">
+      Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" [(ngModel)]="formData.email" required email>
+    <div *ngIf="form.submitted && (form.controls['email']?.errors?.['required'] || form.controls['email']?.errors?.['email'])" class="error-message">
+      Please enter a valid email
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="domain">Domain</label>
+    <input type="text" id="domain" name="domain" class="form-control" [(ngModel)]="formData.domain" required pattern="^(https?://)?([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$">
+    <div *ngIf="form.submitted && form.controls['domain']?.errors?.['required']" class="error-message">
+      Domain is required
+    </div>
+    <div *ngIf="(form.submitted && form.controls['domain']?.errors?.['pattern'])|| (form.controls['domain']?.errors?.['pattern'])" class="error-message">
+      Please enter a valid domain (e.g., example.com)
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

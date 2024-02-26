@@ -1,0 +1,295 @@
+<!-- <div>
+    <h3>
+      Responsive Demo
+      <small>
+        <a
+          href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/basic/responsive.component.ts"
+          target="_blank"
+        >
+          Source
+        </a>
+      </small>
+    </h3>
+    <ngx-datatable
+      #myTable
+      class="material expandable "
+      [columnMode]="ColumnMode.force"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="50"
+      [scrollbarV]="true"
+      [rows]="rows"
+      (page)="onPage($event)"
+    >
+      <ngx-datatable-row-detail [rowHeight]="50" #myDetailRow (toggle)="onDetailToggle($event)">
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+          <div style="padding-left:60px; font-size:14px">
+            <div>{{ row.id }}, {{ row.name }} ,{{row.email}}</div>
+          </div>
+        </ng-template>
+      </ngx-datatable-row-detail>
+      
+      <ngx-datatable-column
+        [width]="50"
+        [resizeable]="false"
+        [sortable]="false"
+        [draggable]="false"
+        [canAutoResize]="false"
+      >
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+          <a
+            href="#"
+            [class.datatable-icon-right]="!expanded"
+            [class.datatable-icon-down]="expanded"
+            title="Expand/Collapse Row"
+            (click)="toggleExpandRow(row)"
+            class="desktop-hidden"
+          >
+          </a>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Manthan" [flexGrow]="3" [minWidth]="200">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Gender" [flexGrow]="1">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <span class="mobile-hidden">{{ column.name }}</span>
+        </ng-template>
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <span class="mobile-hidden">{{ value }}</span>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Age" [flexGrow]="1">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <span class="mobile-hidden">{{ column.name }}</span>
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <span class="mobile-hidden">{{ value }}</span>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div> -->
+
+
+
+  <div class="row">
+   
+      <div class="col px-3 py-1">
+        <ngx-datatable 
+            class="bootstrap material expandable" 
+            [rows]="rows" 
+            [columnMode]="ColumnMode.force"
+            [headerHeight]="35" 
+            [limit]="5"
+            [footerHeight]="35" 
+            [rowHeight]="35"
+            [scrollbarH]="true" 
+            [scrollbarV]="true" >
+            <ngx-datatable-column 
+            [flexGrow]="2"
+              prop="username"
+              name="User"
+              [sortable]="true"
+              [draggable]="false"
+              >
+              <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+                <div class="d-flex align-items-center">
+                  <span>User</span>
+                  <svg (click)="sort()" class="m-l-10" id="Group_40876" data-name="Group 40876" xmlns="http://www.w3.org/2000/svg" width="18.667" height="18" viewBox="0 0 18.667 28">
+                    <g id="Group_40875" data-name="Group 40875">
+                      <path id="Path_34456" data-name="Path 34456" d="M22.992,5.008,18.325.342h0Q18.284.3,18.24.264C18.226.253,18.212.244,18.2.233S18.165.208,18.148.2,18.114.176,18.1.166L18.05.138,18,.112l-.05-.023L17.894.07,17.839.05,17.786.037,17.728.023,17.666.013,17.615.006a1.174,1.174,0,0,0-.23,0l-.051.007-.062.009-.058.014L17.162.05,17.106.07l-.052.019L17,.112,16.95.138,16.9.166c-.017.01-.034.02-.051.031s-.033.024-.05.037-.028.02-.042.031q-.044.036-.085.077h0L12.009,5.008a1.167,1.167,0,0,0,1.65,1.65l2.675-2.675V17.5a1.167,1.167,0,1,0,2.333,0V3.983l2.675,2.675a1.167,1.167,0,1,0,1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                      <path id="Path_34457" data-name="Path 34457" d="M14.342,21.342l-2.675,2.675V10.5a1.167,1.167,0,0,0-2.333,0V24.017L6.658,21.342a1.167,1.167,0,1,0-1.65,1.65l4.667,4.667h0c.027.027.055.052.085.077l.042.031c.017.012.033.025.05.037s.034.021.051.031l.047.028.053.026.05.023.052.019.055.019.053.014.058.014.062.009.051.007a1.174,1.174,0,0,0,.23,0l.051-.007.062-.009.058-.014.053-.014.055-.019.052-.019.05-.023.053-.026.047-.028c.017-.01.034-.02.051-.031s.033-.024.05-.037l.042-.031c.029-.024.057-.049.084-.076h0l4.667-4.667a1.167,1.167,0,1,0-1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                    </g>
+                  </svg>
+                </div>
+              </ng-template>
+              <ng-template 
+                ngx-datatable-cell-template 
+                let-rowIndex="rowIndex" 
+                let-row="row" 
+                let-value="value">
+                {{ value }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column 
+            [flexGrow]="1"
+              prop="name"
+              name="User Role"
+              [sortable]="true"
+              [draggable]="false"
+              >
+              <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+                <div class="d-flex align-items-center">
+                  <span>User Role</span>
+                  <svg (click)="sort()"  class="m-l-10" id="Group_40876" data-name="Group 40876" xmlns="http://www.w3.org/2000/svg" width="18.667" height="18" viewBox="0 0 18.667 28">
+                    <g id="Group_40875" data-name="Group 40875">
+                      <path id="Path_34456" data-name="Path 34456" d="M22.992,5.008,18.325.342h0Q18.284.3,18.24.264C18.226.253,18.212.244,18.2.233S18.165.208,18.148.2,18.114.176,18.1.166L18.05.138,18,.112l-.05-.023L17.894.07,17.839.05,17.786.037,17.728.023,17.666.013,17.615.006a1.174,1.174,0,0,0-.23,0l-.051.007-.062.009-.058.014L17.162.05,17.106.07l-.052.019L17,.112,16.95.138,16.9.166c-.017.01-.034.02-.051.031s-.033.024-.05.037-.028.02-.042.031q-.044.036-.085.077h0L12.009,5.008a1.167,1.167,0,0,0,1.65,1.65l2.675-2.675V17.5a1.167,1.167,0,1,0,2.333,0V3.983l2.675,2.675a1.167,1.167,0,1,0,1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                      <path id="Path_34457" data-name="Path 34457" d="M14.342,21.342l-2.675,2.675V10.5a1.167,1.167,0,0,0-2.333,0V24.017L6.658,21.342a1.167,1.167,0,1,0-1.65,1.65l4.667,4.667h0c.027.027.055.052.085.077l.042.031c.017.012.033.025.05.037s.034.021.051.031l.047.028.053.026.05.023.052.019.055.019.053.014.058.014.062.009.051.007a1.174,1.174,0,0,0,.23,0l.051-.007.062-.009.058-.014.053-.014.055-.019.052-.019.05-.023.053-.026.047-.028c.017-.01.034-.02.051-.031s.033-.024.05-.037l.042-.031c.029-.024.057-.049.084-.076h0l4.667-4.667a1.167,1.167,0,1,0-1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                    </g>
+                  </svg>
+                </div>
+              </ng-template>
+              <ng-template 
+                ngx-datatable-cell-template 
+                let-rowIndex="rowIndex" 
+                let-row="row" 
+                let-value="value">
+                {{ value }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column 
+            [flexGrow]="1"
+              prop="email"
+              name="Email"
+              [sortable]="true"
+              [draggable]="false"
+              >
+              <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+                <div class="d-flex align-items-center">
+                  <span>Email</span>
+                  <svg (click)="sort()"  class="m-l-10" id="Group_40876" data-name="Group 40876" xmlns="http://www.w3.org/2000/svg" width="18.667" height="18" viewBox="0 0 18.667 28">
+                    <g id="Group_40875" data-name="Group 40875">
+                      <path id="Path_34456" data-name="Path 34456" d="M22.992,5.008,18.325.342h0Q18.284.3,18.24.264C18.226.253,18.212.244,18.2.233S18.165.208,18.148.2,18.114.176,18.1.166L18.05.138,18,.112l-.05-.023L17.894.07,17.839.05,17.786.037,17.728.023,17.666.013,17.615.006a1.174,1.174,0,0,0-.23,0l-.051.007-.062.009-.058.014L17.162.05,17.106.07l-.052.019L17,.112,16.95.138,16.9.166c-.017.01-.034.02-.051.031s-.033.024-.05.037-.028.02-.042.031q-.044.036-.085.077h0L12.009,5.008a1.167,1.167,0,0,0,1.65,1.65l2.675-2.675V17.5a1.167,1.167,0,1,0,2.333,0V3.983l2.675,2.675a1.167,1.167,0,1,0,1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                      <path id="Path_34457" data-name="Path 34457" d="M14.342,21.342l-2.675,2.675V10.5a1.167,1.167,0,0,0-2.333,0V24.017L6.658,21.342a1.167,1.167,0,1,0-1.65,1.65l4.667,4.667h0c.027.027.055.052.085.077l.042.031c.017.012.033.025.05.037s.034.021.051.031l.047.028.053.026.05.023.052.019.055.019.053.014.058.014.062.009.051.007a1.174,1.174,0,0,0,.23,0l.051-.007.062-.009.058-.014.053-.014.055-.019.052-.019.05-.023.053-.026.047-.028c.017-.01.034-.02.051-.031s.033-.024.05-.037l.042-.031c.029-.024.057-.049.084-.076h0l4.667-4.667a1.167,1.167,0,1,0-1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                    </g>
+                  </svg>
+                </div>
+              </ng-template>
+              <ng-template 
+                ngx-datatable-cell-template 
+                let-rowIndex="rowIndex" 
+                let-row="row" 
+                let-value="value">
+                {{ value }}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column 
+            [flexGrow]="1"
+              prop="id"
+              name="Created On"
+              [sortable]="true"
+              [draggable]="false"
+              >
+              <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+                <div class="d-flex align-items-center">
+                  <span>Created On</span>
+                  <svg (click)="sort()"  class="m-l-10" id="Group_40876" data-name="Group 40876" xmlns="http://www.w3.org/2000/svg" width="18.667" height="18" viewBox="0 0 18.667 28">
+                    <g id="Group_40875" data-name="Group 40875">
+                      <path id="Path_34456" data-name="Path 34456" d="M22.992,5.008,18.325.342h0Q18.284.3,18.24.264C18.226.253,18.212.244,18.2.233S18.165.208,18.148.2,18.114.176,18.1.166L18.05.138,18,.112l-.05-.023L17.894.07,17.839.05,17.786.037,17.728.023,17.666.013,17.615.006a1.174,1.174,0,0,0-.23,0l-.051.007-.062.009-.058.014L17.162.05,17.106.07l-.052.019L17,.112,16.95.138,16.9.166c-.017.01-.034.02-.051.031s-.033.024-.05.037-.028.02-.042.031q-.044.036-.085.077h0L12.009,5.008a1.167,1.167,0,0,0,1.65,1.65l2.675-2.675V17.5a1.167,1.167,0,1,0,2.333,0V3.983l2.675,2.675a1.167,1.167,0,1,0,1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                      <path id="Path_34457" data-name="Path 34457" d="M14.342,21.342l-2.675,2.675V10.5a1.167,1.167,0,0,0-2.333,0V24.017L6.658,21.342a1.167,1.167,0,1,0-1.65,1.65l4.667,4.667h0c.027.027.055.052.085.077l.042.031c.017.012.033.025.05.037s.034.021.051.031l.047.028.053.026.05.023.052.019.055.019.053.014.058.014.062.009.051.007a1.174,1.174,0,0,0,.23,0l.051-.007.062-.009.058-.014.053-.014.055-.019.052-.019.05-.023.053-.026.047-.028c.017-.01.034-.02.051-.031s.033-.024.05-.037l.042-.031c.029-.024.057-.049.084-.076h0l4.667-4.667a1.167,1.167,0,1,0-1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                    </g>
+                  </svg>
+                </div>
+              </ng-template>
+              <ng-template 
+                ngx-datatable-cell-template 
+                let-rowIndex="rowIndex" 
+                let-row="row" 
+                let-value="value">
+                {{ value | date: 'MMM d, y'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column 
+            [flexGrow]="1"
+              prop="isActive"
+              name="Active"
+              [sortable]="true"
+              [draggable]="false"
+              >
+              <ng-template ngx-datatable-header-template let-sort="sortFn" let-sortDir="sortDir">
+                <div class="d-flex align-items-center">
+                  <span>Active</span>
+                  <svg (click)="sort()" class="m-l-10" id="Group_40876" data-name="Group 40876" xmlns="http://www.w3.org/2000/svg" width="18.667" height="18" viewBox="0 0 18.667 28">
+                    <g id="Group_40875" data-name="Group 40875">
+                      <path id="Path_34456" data-name="Path 34456" d="M22.992,5.008,18.325.342h0Q18.284.3,18.24.264C18.226.253,18.212.244,18.2.233S18.165.208,18.148.2,18.114.176,18.1.166L18.05.138,18,.112l-.05-.023L17.894.07,17.839.05,17.786.037,17.728.023,17.666.013,17.615.006a1.174,1.174,0,0,0-.23,0l-.051.007-.062.009-.058.014L17.162.05,17.106.07l-.052.019L17,.112,16.95.138,16.9.166c-.017.01-.034.02-.051.031s-.033.024-.05.037-.028.02-.042.031q-.044.036-.085.077h0L12.009,5.008a1.167,1.167,0,0,0,1.65,1.65l2.675-2.675V17.5a1.167,1.167,0,1,0,2.333,0V3.983l2.675,2.675a1.167,1.167,0,1,0,1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                      <path id="Path_34457" data-name="Path 34457" d="M14.342,21.342l-2.675,2.675V10.5a1.167,1.167,0,0,0-2.333,0V24.017L6.658,21.342a1.167,1.167,0,1,0-1.65,1.65l4.667,4.667h0c.027.027.055.052.085.077l.042.031c.017.012.033.025.05.037s.034.021.051.031l.047.028.053.026.05.023.052.019.055.019.053.014.058.014.062.009.051.007a1.174,1.174,0,0,0,.23,0l.051-.007.062-.009.058-.014.053-.014.055-.019.052-.019.05-.023.053-.026.047-.028c.017-.01.034-.02.051-.031s.033-.024.05-.037l.042-.031c.029-.024.057-.049.084-.076h0l4.667-4.667a1.167,1.167,0,1,0-1.65-1.65Z" transform="translate(-4.667 0)" fill="#fff"/>
+                    </g>
+                  </svg>
+                </div>
+              </ng-template>
+              <ng-template 
+                ngx-datatable-cell-template 
+                let-rowIndex="rowIndex" 
+                let-row="row" 
+                let-value="value">
+                <input class="d-block m-l-15" type="checkbox" [checked]="value">
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column 
+            [flexGrow]="2"
+              prop=""
+              name=""
+              [sortable]="true"
+              [draggable]="false"
+              >
+              <ng-template ngx-datatable-header-template>
+                <div class="">
+                </div>
+              </ng-template>
+              <ng-template 
+                ngx-datatable-cell-template 
+                let-rowIndex="rowIndex" 
+                let-row="row" 
+                let-value="value">
+                <button class="d-inline-flex align-items-center border-0 bg-transparent" type="button">
+                  <svg class="m-r-5" xmlns="http://www.w3.org/2000/svg" width="16.826" height="14" viewBox="0 0 16.826 20">
+                    <g id="write" transform="translate(-7.875 0.025)">
+                      <path id="Path_664" data-name="Path 664" d="M9.9,16.816a1.421,1.421,0,0,0,.42-.06l3.6-.72a2.315,2.315,0,0,0,1.06-.58L23.7,6.738a3.586,3.586,0,0,0,0-4.979l-.74-.78a3.611,3.611,0,0,0-5,0L9.239,9.717a2.4,2.4,0,0,0-.58,1.06L7.9,14.416a2.035,2.035,0,0,0,2,2.4Zm.68-5.659L19.3,2.419a1.608,1.608,0,0,1,2.2,0l.76.76a1.551,1.551,0,0,1,0,2.3l-8.7,8.738-3.7.62Z" transform="translate(0)"/>
+                      <path id="Path_665" data-name="Path 665" d="M23.716,90.4H8.96a.9.9,0,0,0-.96.96.959.959,0,0,0,.96.96H23.636a.962.962,0,1,0,.08-1.919Z" transform="translate(-0.1 -72.345)"/>
+                    </g>
+                  </svg>
+                  <span>Edit</span>
+                </button>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-footer>
+              <ng-template
+                let-rowCount="rowCount"
+                let-pageSize="pageSize"
+                let-selectedCount="selectedCount"
+                let-curPage="curPage"
+                let-offset="offset"
+                ngx-datatable-footer-template
+              >
+              <div class="row ">
+                <div class="col-md-12 col-sm-12 col-xl-12 d-flex">
+                  <ul class="d-flex p-1  color-orangered cursor-pointer">
+                    <li class="p-1 px-2 border border-danger ">Previous</li>
+                    <li class="p-1 px-2 border border-danger bg-danger">1</li>
+                    <li class="p-1 px-2 border border-danger">2</li>
+                    <li class="p-1 px-2 border border-danger">3</li>
+                    <li class="p-1 px-2 border border-danger">4</li>
+                    <li class="p-1 px-2 border border-danger">Next</li>
+                  </ul>
+                </div>
+              </div>
+              </ng-template>
+            </ngx-datatable-footer>
+    
+            <!-- <ngx-datatable-footer>
+              <ng-template ngx-datatable-footer-template>
+                <div class="pagination-size-control d-flex">
+                  <div class="pagination-control">
+                    <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Custom pagination">
+                      <ng-template ngbPaginationPrevious>Previous</ng-template>
+                      <ng-template ngbPaginationNext>Next</ng-template>
+                      <ng-template ngbPaginationNumber let-p>{{ getPageSymbol(p) }}</ng-template>
+                    </ngb-pagination>
+                  </div>
+                </div>
+              </ng-template>
+            </ngx-datatable-footer> -->
+        </ngx-datatable>
+    </div>
+    
+  </div>
+
+  <!-- <div>
+    {{data|json}}
+  </div> -->
+
+ 
+
+

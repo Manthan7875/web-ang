@@ -1,0 +1,62 @@
+
+<div class="container-fluid d-flex flex-column h-100">
+
+
+  <h2 class="text-decoration-underline">
+    Dashboard
+  </h2>
+  <div class="parent flex-fill overflow-auto">
+    <div class="div1 border">
+
+    </div>
+    <div class="div2 border">
+
+    </div>
+    <div class="div3 border w-100">
+        <canvas baseChart class="chart h-100" (chartClick)="legendClick(0)"
+        (chartHover)="legendHover(0)"  [options]="doughnutChartOptions" [legend]="false" [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
+        <!-- <div class="legend-container">
+          <ul>
+            <li *ngFor="let legendItem of legendData; let i = index" (click)="legendClick(i)">
+              <span class="legend-color" [style.background-color]="legendItem.color"></span>
+              {{ legendItem.label }} -
+              {{ legendItem.value }}
+              <span *ngIf="legendItem.visible"> (Visible)</span>
+              <span *ngIf="!legendItem.visible"> (Hidden)</span>
+            </li>
+          </ul>
+        </div> -->
+        <div class="legend-container">
+          <ul>
+            <li *ngFor="let label of doughnutChartLabels; let i = index" (click)="toggleDatasetVisibility(i)">
+              <span class="legend-color" [style.background-color]="doughnutChartData.datasets[0].backgroundColor[i]"></span>
+              {{ label }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    <div class="div4 border">
+      <div class="myChartWrapper">
+        <div class="myChart">
+          <canvas
+            baseChart
+            class="chart"
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [type]="barChartType"
+            (chartHover)="chartHoveredd($event)"
+            (chartClick)="chartClickedd($event)"
+            >
+          </canvas>
+        </div>
+
+      </div>
+    </div>
+    <div class="div5 border">
+
+    </div>
+    </div>
+
+</div>
+
